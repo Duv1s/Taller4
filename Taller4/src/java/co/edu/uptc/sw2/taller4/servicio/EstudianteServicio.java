@@ -29,18 +29,40 @@ public class EstudianteServicio {
     public List<EstudianteDTO> obtenerTodosEstudiantes() {
         return ProveedorInformacion.instance().obtenerTodos(EstudianteDTO.class);
     }
-    
+    @GET
+    @Path("buscar")//constante
+    public List<EstudianteDTO> buscarEstudiante(
+
+        @QueryParam("nombre") String nombre,
+         @QueryParam("apellido") String apellido){
+
+       ArrayList listSearch=new ArrayList<EstudianteDTO>();
+        for (int i = 0; i < this.obtenerTodosEstudiantes().size(); i++) {
+            EstudianteDTO estudianteDTO = this.obtenerTodosEstudiantes().get(i);
+            if (estudianteDTO!=null&&( estudianteDTO.getNombres().contains(nombre)||estudianteDTO.getNombres().contains(apellido))) {
+                listSearch.add(estudianteDTO);
+                //System.out.println(estudianteDTO.getNombres()+"   -------");
+
+            }
+//            else{
+//                System.out.println(estudianteDTO.getNombres()+"   NO FOUND NOBRE ");
+//            }
+
+        }
+        return (List<EstudianteDTO>) listSearch;
+    }
+
     @GET
     @Path("/{id}")
     public EstudianteDTO obtenerEstudiante(@PathParam("id") Long id) {
         return (EstudianteDTO) ProveedorInformacion.instance().obtener(EstudianteDTO.class, id);
     }
-    
+
     @POST
     public EstudianteDTO guardarEstudiante(EstudianteDTO dto) {
         return (EstudianteDTO) ProveedorInformacion.instance().guardar(dto);
     }
-    
+
     @DELETE
     @Path("/{id}")
     public void borrarEstudiante(@PathParam("id") Long id) {

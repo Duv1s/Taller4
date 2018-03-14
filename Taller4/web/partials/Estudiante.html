@@ -6,6 +6,29 @@
 <div class="panel panel-primary" ng-hide="panelEditar">
     <div class="panel-heading">Parametrizaci&oacute;n de Estudiante</div>
     <div class="panel-body">
+      <div class="row">
+                <div class="form-group col-md-6" ng-class="errores.nombres ? 'error' : ''">
+                    <label for="nombreSearch">nombre</label>
+                    <input id="nombreSearch"
+                           class="form-control"
+                           type="text"
+                           ng-model="datosFormulario.nombreSearch"
+                           placeholder="nombres"/>
+                    <div ng-show="errores.nombres">{{errores.nombres}}</div>
+                </div>
+            </div>
+         <div class="row">
+                <div class="form-group col-md-6" ng-class="errores.apellido ? 'error' : ''">
+                    <label for="apellidoSearch">apellido</label>
+                    <input id="apellidoSearch"
+                           class="form-control"
+                           type="text"
+                           ng-model="datosFormulario.apellidoSearch"
+                           placeholder="Apellido"/>
+                    <div ng-show="errores.apellido">{{errores.apellido}}</div>
+                </div>
+            </div>
+        <button type="button" class="btn btn-default" ng-click="buscar()">Buscar</button>
         <table class="resultados table table-striped">
             <tr>
                 <th>
@@ -40,7 +63,7 @@
                 <td>{{row.fechaNacimiento| date: 'dd/MM/yyyy'}}</td>
 
 
-                <td class="row">{{row.carrera.nombre}}</td>              	<td class="row">{{row.lugarNacimiento.nombre}}</td>              
+                <td class="row">{{row.carrera.nombre}}</td>              	<td class="row">{{row.lugarNacimiento.nombre}}</td>
                 <td class="row">
                     <button type="button" class="btn btn-default" ng-click="editar(row)">
                         <span class="glyphicon glyphicon-pencil"></span>Editar
@@ -63,8 +86,8 @@
             <div class="row">
                 <div class="form-group col-md-6" ng-class="errores.nombres ? 'error' : ''">
                     <label for="nombres">nombres</label>
-                    <input id="nombres" 
-                           class="form-control" 
+                    <input id="nombres"
+                           class="form-control"
                            type="text"
                            ng-model="datosFormulario.nombres"
                            placeholder="nombres"/>
@@ -73,8 +96,8 @@
             </div>				<div class="row">
                 <div class="form-group col-md-6" ng-class="errores.apellidos ? 'error' : ''">
                     <label for="apellidos">apellidos</label>
-                    <input id="apellidos" 
-                           class="form-control" 
+                    <input id="apellidos"
+                           class="form-control"
                            type="text"
                            ng-model="datosFormulario.apellidos"
                            placeholder="apellidos"/>
@@ -83,8 +106,8 @@
             </div>				<div class="row">
                 <div class="form-group col-md-6" ng-class="errores.codigo ? 'error' : ''">
                     <label for="codigo">codigo</label>
-                    <input id="codigo" 
-                           class="form-control" 
+                    <input id="codigo"
+                           class="form-control"
                            type="text"
                            ng-model="datosFormulario.codigo"
                            placeholder="codigo"/>
@@ -93,8 +116,8 @@
             </div>				<div class="row">
                 <div class="form-group col-md-6" ng-class="errores.documento ? 'error' : ''">
                     <label for="documento">documento</label>
-                    <input id="documento" 
-                           class="form-control" 
+                    <input id="documento"
+                           class="form-control"
                            type="text"
                            ng-model="datosFormulario.documento"
                            placeholder="documento"/>
@@ -104,9 +127,9 @@
                 <div class="form-group col-md-6" ng-class="errores.fechaNacimiento ? 'error' : ''">
                     <label for="fechaNacimiento">fechaNacimiento</label>
                     <div class="input-group">
-                        <input id="fechaNacimiento" 
-                               class="form-control datepicker" 
-                               type="text" 
+                        <input id="fechaNacimiento"
+                               class="form-control datepicker"
+                               type="text"
                                ng-model="datosFormulario.fechaNacimiento"/>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
@@ -115,15 +138,15 @@
                                 .on('changeDate', function (ev) {
                                 dp_fechaNacimiento.hide();
                                 }).data('datepicker');
-                           
+
                     </script>
                     <div ng-show="errores.fechaNacimiento">{{errores.fechaNacimiento}}</div>
                 </div>
-            </div> 
+            </div>
             <div class="row">
                 <div class="form-group col-md-6" ng-class="errores.idAseg ? 'error' : ''">
                     <label>carrera</label>
-                    <select id="carrera" class="form-control" 
+                    <select id="carrera" class="form-control"
                             ng-model="datosFormulario.carrera"
                             ng-options="option.nombre for option in listaCarrera track by option.id">
                     </select>
@@ -132,7 +155,7 @@
             </div>				<div class="row">
                 <div class="form-group col-md-6" ng-class="errores.idAseg ? 'error' : ''">
                     <label>lugarNacimiento</label>
-                    <select id="lugarNacimiento" class="form-control" 
+                    <select id="lugarNacimiento" class="form-control"
                             ng-model="datosFormulario.lugarNacimiento"
                             ng-options="option.nombre for option in listaLugarNacimiento track by option.id">
                     </select>
@@ -146,4 +169,3 @@
         </form>
     </div>
 </div>
-

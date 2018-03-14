@@ -31,6 +31,17 @@ module.controller('EstudianteCtrl', ['$scope', '$filter', '$http', function ($sc
                 alert('Error al consultar la informaci\xf3n de lugarNacimiento, por favor intente m\xe1s tarde');
             });
         };
+        $scope.buscar= function(){
+            $http.get('./webresources/Estudiante/buscar?nombre='+ $scope.datosFormulario.nombreSearch+'&apellido='+$scope.datosFormulario.apellidoSearch, {})
+                    .success(function (data, status, headers, config) {
+
+                        $scope.lista = data;
+
+                    }).error(function (data, status, headers, config) {
+                alert('Error al consultar la informaci\xf3n de '+$scope.datosFormulario.nombreSearch+"\n "+$scope.datosFormulario.apellidoSearch);
+            });
+
+        };
         $scope.listarLugarNacimiento();
 
 
@@ -47,8 +58,8 @@ module.controller('EstudianteCtrl', ['$scope', '$filter', '$http', function ($sc
 
             if (error)
                 return;
-           
-           
+
+
            $scope.datosFormulario.fechaNacimiento = $('#fechaNacimiento').val();
             $http.post('./webresources/Estudiante', JSON.stringify($scope.datosFormulario), {}
             ).success(function (data, status, headers, config) {
