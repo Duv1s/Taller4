@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="software 2">
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/web/js/RouteProvider.js</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/servicio/FacultadServicio.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/servicio/ProveedorInformacion.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/dto/CarreraDTO.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/servicio/MunicipioServicio.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/org/netbeans/rest/application/config/GsonMessageBodyHandler.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/dto/FacultadDTO.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/web/partials/menu.html</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/co/edu/uptc/sw2/taller5/servicio/CarreraServicio.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/Taller5/src/java/org/netbeans/rest/application/config/ApplicationConfig.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/ASUS-PC/Documents/NetBeansProjects/Taller4/web/partials/Profesor.html</file>
+            <file>file:/C:/Users/ASUS-PC/Documents/NetBeansProjects/Taller4/src/java/co/edu/uptc/sw2/taller4/servicio/MateriaServicio.java</file>
+            <file>file:/C:/Users/ASUS-PC/Documents/NetBeansProjects/Taller4/web/partials/Materia.html</file>
+            <file>file:/C:/Users/ASUS-PC/Documents/NetBeansProjects/Taller4/src/java/co/edu/uptc/sw2/taller4/dto/HorarioDTO.java</file>
+        </group>
+    </open-files>
+</project-private>
