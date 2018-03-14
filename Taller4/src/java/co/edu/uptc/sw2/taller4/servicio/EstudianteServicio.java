@@ -6,6 +6,7 @@
 package co.edu.uptc.sw2.taller4.servicio;
 
 import co.edu.uptc.sw2.taller4.dto.EstudianteDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -14,6 +15,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -37,17 +39,12 @@ public class EstudianteServicio {
          @QueryParam("apellido") String apellido){
 
        ArrayList listSearch=new ArrayList<EstudianteDTO>();
-        for (int i = 0; i < this.obtenerTodosEstudiantes().size(); i++) {
-            EstudianteDTO estudianteDTO = this.obtenerTodosEstudiantes().get(i);
+       List<EstudianteDTO> aux = this.obtenerTodosEstudiantes();
+        for (int i = 0; i < aux.size(); i++) {
+            EstudianteDTO estudianteDTO = aux.get(i);
             if (estudianteDTO!=null&&( estudianteDTO.getNombres().contains(nombre)||estudianteDTO.getApellidos().contains(apellido))) {
                 listSearch.add(estudianteDTO);
-                //System.out.println(estudianteDTO.getNombres()+"   -------");
-
             }
-//            else{
-//                System.out.println(estudianteDTO.getNombres()+"   NO FOUND NOBRE ");
-//            }
-
         }
         return (List<EstudianteDTO>) listSearch;
     }

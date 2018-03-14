@@ -31,16 +31,19 @@ module.controller('EstudianteCtrl', ['$scope', '$filter', '$http', function ($sc
                 alert('Error al consultar la informaci\xf3n de lugarNacimiento, por favor intente m\xe1s tarde');
             });
         };
-        $scope.buscar= function(){
-            $http.get('./webresources/Estudiante/buscar?nombre='+ $scope.datosFormulario.nombreSearch+'&apellido='+$scope.datosFormulario.apellidoSearch, {})
-                    .success(function (data, status, headers, config) {
+        $scope.buscar = function () {
 
-                        $scope.lista = data;
-
-                    }).error(function (data, status, headers, config) {
-                alert('Error al consultar la informaci\xf3n de '+$scope.datosFormulario.nombreSearch+"\n "+$scope.datosFormulario.apellidoSearch);
-            });
-
+            if (($scope.datosFormulario.nombreSearch !== undefined && $scope.datosFormulario.nombreSearch !== "") || ($scope.datosFormulario.apellidoSearch !== undefined && $scope.datosFormulario.apellidoSearch !== "")) {
+                console.log($scope.datosFormulario.nombreSearch);
+                $http.get('./webresources/Estudiante/buscar?nombre=' + $scope.datosFormulario.nombreSearch + '&apellido=' + $scope.datosFormulario.apellidoSearch, {})
+                        .success(function (data, status, headers, config) {
+                            $scope.lista = data;
+                        }).error(function (data, status, headers, config) {
+                    alert('Error al consultar la informaci\xf3n de ' + $scope.datosFormulario.nombreSearch + "\n " + $scope.datosFormulario.apellidoSearch);
+                });
+            } else {
+                $scope.listar();
+            }
         };
         $scope.listarLugarNacimiento();
 
@@ -60,7 +63,7 @@ module.controller('EstudianteCtrl', ['$scope', '$filter', '$http', function ($sc
                 return;
 
 
-           $scope.datosFormulario.fechaNacimiento = $('#fechaNacimiento').val();
+            $scope.datosFormulario.fechaNacimiento = $('#fechaNacimiento').val();
             $http.post('./webresources/Estudiante', JSON.stringify($scope.datosFormulario), {}
             ).success(function (data, status, headers, config) {
                 alert("Los datos han sido guardados con Exito");
@@ -79,7 +82,7 @@ module.controller('EstudianteCtrl', ['$scope', '$filter', '$http', function ($sc
         $scope.editar = function (data) {
             $scope.panelEditar = true;
             $scope.datosFormulario = data;
-            $scope.datosFormulario.fechaNacimiento = $('#fechaNacimiento').val();
+            $scope.datosFormulario.fechaNacimiento = data.fechaNacimiento;
         };
         //eliminar
         $scope.eliminar = function (data) {
