@@ -39,7 +39,7 @@ public class EstudianteServicio {
        ArrayList listSearch=new ArrayList<EstudianteDTO>();
         for (int i = 0; i < this.obtenerTodosEstudiantes().size(); i++) {
             EstudianteDTO estudianteDTO = this.obtenerTodosEstudiantes().get(i);
-            if (estudianteDTO!=null&&( estudianteDTO.getNombres().contains(nombre)||estudianteDTO.getNombres().contains(apellido))) {
+            if (estudianteDTO!=null&&( estudianteDTO.getNombres().contains(nombre)||estudianteDTO.getApellidos().contains(apellido))) {
                 listSearch.add(estudianteDTO);
                 //System.out.println(estudianteDTO.getNombres()+"   -------");
 
