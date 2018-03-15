@@ -5,7 +5,9 @@
 var app = angular.module('adminTaller4', [
     'ngRoute',
     'angularUtils.directives.dirPagination',
-    'adminTaller4.controllers'
+    'adminTaller4.controllers',
+    'ngMaterial', 
+    'ngMessages'
 ]);
 app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/menu.html'});

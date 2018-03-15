@@ -123,23 +123,28 @@
                            placeholder="documento"/>
                     <div ng-show="errores.documento">{{errores.documento}}</div>
                 </div>
-            </div>				<div class="row">
+            </div>				
+            <div class="row">
                 <div class="form-group col-md-6" ng-class="errores.fechaNacimiento ? 'error' : ''">
                     <label for="fechaNacimiento">fechaNacimiento</label>
                     <div class="input-group">
+                    <md-datepicker ng-model="datosFormulario.fechaNacimiento" md-placeholder="Ingrese fecha"></md-datepicker>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+<!--                    <div class="input-group">
                         <input id="fechaNacimiento"
                                class="form-control datepicker"
                                type="text"
                                ng-model="datosFormulario.fechaNacimiento"/>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-                    <script>
+                    </div>-->
+<!--                    <script>
                         $('#fechaNacimiento').datepicker({format: 'dd/mm/yyyy', language: "es"})
                                 .on('changeDate', function (ev) {
                                 dp_fechaNacimiento.hide();
                                 }).data('datepicker');
 
-                    </script>
+                    </script>-->
                     <div ng-show="errores.fechaNacimiento">{{errores.fechaNacimiento}}</div>
                 </div>
             </div>
