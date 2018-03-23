@@ -3,7 +3,13 @@
 module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
         //listar
         $scope.lista = [];
-        $scope.datosFormulario = {};
+        $scope.datosFormulario = {horario:[]};
+        $scope.datosHorario = {};
+        $scope.items = [
+               'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'
+                ];
+
+
         $scope.panelEditar = false;
         $scope.listar = function () {
             $http.get('./webresources/Materia', {})
@@ -47,7 +53,8 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
         //guardar
         $scope.nuevo = function () {
             $scope.panelEditar = true;
-            $scope.datosFormulario = {};
+            $scope.datosFormulario = {horario:[]};
+            $scope.datosHorario = [];
         };
 
         $scope.guardar = function () {
@@ -65,6 +72,22 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
                 alert('Error al guardar la informaci\xf3n, por favor intente m\xe1s tarde');
             });
         };
+        
+        $scope.guardarHorario = function(){
+             $scope.datosFormulario.horario.push($scope.datosHorario);
+             $scope.datosHorario = {};
+        };
+        
+        $scope.eliminarHorario = function(data){
+            if (confirm('Desea eiminar este registro')) {
+                var index = $scope.datosFormulario.horario.indexOf(data);
+                $scope.datosFormulario.horario.splice(index,1);
+            }
+        };
+        
+         
+        
+        
         $scope.cancelar = function () {
             $scope.panelEditar = false;
             $scope.datosFormulario = {};
@@ -75,6 +98,8 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             $scope.panelEditar = true;
             $scope.datosFormulario = data;
         };
+        
+        
         //eliminar
         $scope.eliminar = function (data) {
             if (confirm('\xbfDesea elminar este registro?')) {
@@ -87,3 +112,4 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             }
         };
     }]);
+

@@ -5,7 +5,12 @@
 var app = angular.module('adminTaller4', [
     'ngRoute',
     'angularUtils.directives.dirPagination',
-    'adminTaller4.controllers'
+    'adminTaller4.controllers',
+    'ngMaterial', 
+    'ngMessages',
+    "ngAnimate",
+    "ngAria",
+    "mdPickers"
 ]);
 app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {templateUrl: 'partials/menu.html'});
@@ -20,3 +25,4 @@ app.config(['$routeProvider', function ($routeProvider) {
     }]);
 
 var module = angular.module("adminTaller4.controllers", []);
+

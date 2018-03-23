@@ -27,58 +27,42 @@ public class HorarioDTO {
     /**
     * @generated
     */
-    private Integer diaSemana;
+    private String diaSemana;
     
     /**
     * @generated
     */
-    private Integer horaInicio;
+    private String horaInicio;
     
     /**
     * @generated
     */
-    private Integer horaFin;
-    
-    
-    /**
-    * @generated
-    */
-    public Integer getDiaSemana() {
-        return this.diaSemana;
+    private String horaFin;
+
+    public String getDiaSemana() {
+        return diaSemana;
     }
-    
-    /**
-    * @generated
-    */
-    public void setDiaSemana(Integer diaSemana) {
+
+    public void setDiaSemana(String diaSemana) {
         this.diaSemana = diaSemana;
     }
-    /**
-    * @generated
-    */
-    public Integer getHoraInicio() {
-        return this.horaInicio;
+
+    public String getHoraInicio() {
+        return horaInicio;
     }
-    
-    /**
-    * @generated
-    */
-    public void setHoraInicio(Integer horaInicio) {
+
+    public void setHoraInicio(String horaInicio) {
         this.horaInicio = horaInicio;
     }
-    /**
-    * @generated
-    */
-    public Integer getHoraFin() {
-        return this.horaFin;
+
+    public String getHoraFin() {
+        return horaFin;
     }
-    
-    /**
-    * @generated
-    */
-    public void setHoraFin(Integer horaFin) {
+
+    public void setHoraFin(String horaFin) {
         this.horaFin = horaFin;
     }
+    
     
 	
 }
